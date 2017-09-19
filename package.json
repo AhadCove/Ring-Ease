@@ -4,7 +4,7 @@
   "description": "Ring Ease Server",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/dev",
+    "start": "node dist",
     "conc": "concurrently \"npm run server\" \"cd client && npm start\"",
     "pm2": "pm2 --name='ring-ease' start npm -- start",    
     "server": "nodemon bin/dev",
@@ -12,7 +12,7 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && mkdir dist && babel server -s -d dist",
     "production": "npm run build && nodemon bin/production",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "heroku-postbuild": "npm run build && cd client && npm install --only=dev && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ahadcove",

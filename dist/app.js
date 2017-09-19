@@ -8,6 +8,10 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
@@ -29,12 +33,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ES6 promises
 _mongoose2.default.Promise = Promise;
 
+var mongoUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/ring-ease";
 // mongodb connection
-_mongoose2.default.connect("mongodb://localhost:27017/ring-ease", {
+_mongoose2.default.connect(mongoUrl, {
   useMongoClient: true,
   promiseLibrary: global.Promise
 });
-
 var db = _mongoose2.default.connection;
 
 // mongodb error
@@ -54,7 +58,16 @@ app.use(_bodyParser2.default.json());
 // Middleware
 app.use((0, _cors2.default)());
 
+// Serve static files from the React app
+app.use(_express2.default.static(_path2.default.join(__dirname, '../client/build')));
+
 app.use('/api', _routes2.default);
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', function (req, res) {
+  res.sendFile(_path2.default.join(__dirname + '/../client/build/index.html'));
+});
 
 exports.default = app;
 //# sourceMappingURL=app.js.map

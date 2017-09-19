@@ -8,7 +8,6 @@ class Home extends Component{
     // }
 
     render(){
-        console.log("Env", process.env.REACT_APP_SECRET_CODE);
         return(
             <HomeContain>
                 <Title>Welcome To Ring Cove</Title>

@@ -10,16 +10,12 @@ import routes from './routes';
 // ES6 promises
 mongoose.Promise = Promise;
 
+const mongoUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/ring-ease";
 // mongodb connection
-// mongoose.connect("mongodb://localhost:27017/ring-ease", {
-//   useMongoClient: true,
-//   promiseLibrary: global.Promise
-// });
-mongoose.connect("mongodb://heroku_rfqp2ncp:fsdgjdqkvk0m4n7qre7ksa4gaa@ds141464.mlab.com:41464/heroku_rfqp2ncp", {
+mongoose.connect(mongoUrl, {
   useMongoClient: true,
   promiseLibrary: global.Promise
 });
-
 var db = mongoose.connection;
 
 // mongodb error

@@ -12,7 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _dotenv2.default.config();
 
-var port = 7001;
+var port = process.env.PORT || 7001;
 
 _app2.default.listen(port, function () {
     console.log("Running on port ", port);
