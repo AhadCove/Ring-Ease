@@ -4,7 +4,8 @@
   "description": "Ring Ease Server",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"cd client && npm start\"",
+    "start": "node bin/dev",
+    "conc": "concurrently \"npm run server\" \"cd client && npm start\"",
     "pm2": "pm2 --name='ring-ease' start npm -- start",    
     "server": "nodemon bin/dev",
     "client": "node start-client.js",
