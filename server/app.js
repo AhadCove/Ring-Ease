@@ -11,7 +11,11 @@ import routes from './routes';
 mongoose.Promise = Promise;
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/ring-ease", {
+// mongoose.connect("mongodb://localhost:27017/ring-ease", {
+//   useMongoClient: true,
+//   promiseLibrary: global.Promise
+// });
+mongoose.connect("mongodb://heroku_rfqp2ncp:fsdgjdqkvk0m4n7qre7ksa4gaa@ds141464.mlab.com:41464/heroku_rfqp2ncp", {
   useMongoClient: true,
   promiseLibrary: global.Promise
 });
