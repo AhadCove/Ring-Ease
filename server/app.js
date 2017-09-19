@@ -35,6 +35,9 @@ app.use(bodyParser.json());
 // Middleware
 app.use(cors())
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../client/build')));
+
 app.use('/api', routes);
 
 // The "catchall" handler: for any request that doesn't
