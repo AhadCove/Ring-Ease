@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../server/Models/index.js"],"names":["Quiz"],"mappings":";;;;;;AAAA;;;;;;kBAEe;AACXA;AADW,C","file":"index.js","sourcesContent":["import Quiz from './Quiz';\n\nexport default {\n    Quiz\n};"]}
